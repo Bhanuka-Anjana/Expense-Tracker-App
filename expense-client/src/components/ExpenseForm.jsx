@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Form, Row, Col, Button } from "react-bootstrap";
-import { deleteExpense, editExpense, newExpense } from "../app/expensesSlice";
+import { DeleteExpense, EditExpense, NewExpense } from "../services/expenses";
 
 export default function ExpenseForm({ expense, setIsEditing }) {
   const descriptions = [
@@ -30,12 +30,12 @@ export default function ExpenseForm({ expense, setIsEditing }) {
       onSubmit={(event) => {
         event.preventDefault();
         if (isNewExpense) {
-          newExpense(dispatch, {
+          NewExpense(dispatch, {
             description: description,
             amount: Number(amount),
           });
         } else {
-          editExpense(dispatch, {
+          EditExpense(dispatch, {
             id: expense.id,
             description: description,
             amount: Number(amount),
@@ -75,7 +75,7 @@ export default function ExpenseForm({ expense, setIsEditing }) {
               <Button
                 style={{ marginRight: "2px" }}
                 variant="danger"
-                onClick={() => deleteExpense(dispatch, expense)}
+                onClick={() => DeleteExpense(dispatch, expense)}
               >
                 Delete
               </Button>
