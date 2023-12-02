@@ -1,8 +1,10 @@
-import expensesReducer from "./expensesReducer";
-import {configureStore} from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import expensesSlice from "./expensesSlice";
+import authenticationSlice from "./authenticationSlice";
 
 export default configureStore({
   reducer: {
-    expensesReducer: expensesReducer,
+    expensesSlice: expensesSlice,
+    authenticationSlice: authenticationSlice,
   },
 });
