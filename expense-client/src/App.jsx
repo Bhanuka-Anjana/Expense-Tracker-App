@@ -1,11 +1,13 @@
-import './App.css'
+import "./App.css";
+import ExpenseList from "./components/ExpenseList";
 
 function App() {
   return (
     <>
-   Hellow World
+      <h1>Expenses List</h1>
+      <ExpenseList />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
